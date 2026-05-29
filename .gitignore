@@ -34,3 +34,13 @@ data/exports/
 Thumbs.db
 .idea/
 .vscode/
+
+# Project documentation & design files (excluded per request)
+design-system/
+hasil-download/
+design.md
+CrisisMap_Project_Documentation.docx
+LOCAL_RUNNING_AND_USAGE.md
+ML_INFERENCE_REPORT.md
+ML_INFERENCE_REPORT.docx
+~$_INFERENCE_REPORT.docx
