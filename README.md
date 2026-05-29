@@ -23,19 +23,29 @@
 ## 📸 Visual Overview
 
 <div align="center">
-  <img src="SCREENSHOTS/Screenshot%202026-05-30%20021725.png" alt="Results Dashboard" width="800"/>
+  <img src="SCREENSHOTS/workspace_page.png" alt="Assessment Workspace" width="800"/>
   <br/>
-  <i>Dashboard mapping showing localized severe/critical building damage and affected zones.</i>
+  <i>Assessment Workspace: Interactive map for defining the Area of Interest (AOI) and configuring timeframes for AI inference.</i>
   <br/><br/>
 
-  <img src="SCREENSHOTS/Screenshot%202026-05-30%20022559.png" alt="Interactive Split View Workspace" width="800"/>
+  <img src="SCREENSHOTS/split_feature.png" alt="Split Comparison View" width="800"/>
   <br/>
-  <i>Interactive split-view map workspace for analyzing before and after infrastructure state.</i>
+  <i>Independent Split-Comparison View: Visually compare pre-disaster and post-disaster satellite imagery side-by-side.</i>
   <br/><br/>
 
-  <img src="SCREENSHOTS/Screenshot%202026-05-30%20022721.png" alt="Generated Automated Reports" width="800"/>
+  <img src="SCREENSHOTS/assesment_result.png" alt="Assessment Results Dashboard" width="800"/>
   <br/>
-  <i>Exportable post-incident AI assessment reports containing prioritized reconstruction plans.</i>
+  <i>Assessment Results Dashboard: Displays infrastructure damage severity, priority building lists, and interactive map layers.</i>
+  <br/><br/>
+
+  <img src="SCREENSHOTS/assesment_report1.png" alt="Automated Damage Report Summary" width="800"/>
+  <br/>
+  <i>Automated Damage Report: Shows the Donor Summary, high-level impact statistics, and export options (PDF, DOCX, GeoJSON).</i>
+  <br/><br/>
+
+  <img src="SCREENSHOTS/assesment_report2.png" alt="Phased Reconstruction Plan" width="800"/>
+  <br/>
+  <i>Phased Reconstruction Plan: Details top reconstruction priorities, operational timelines, and engineering/AI notes.</i>
 </div>
 
 ## 🛠️ Tech Stack
