@@ -29,7 +29,7 @@ export default function DashboardPage() {
   const [showAllPriorities, setShowAllPriorities] = useState(false);
   const [overlays, setOverlays] = useState<Record<OverlayKey, boolean>>({
     buildings: true,
-    hospitals: true,
+    hospitals: false,
     roads: false,
     utilities: false,
     population: false
@@ -234,12 +234,6 @@ function OverlayRow({ icon: Icon, label, enabled = false, onClick }: { icon: Ele
 function MapLayerOverlays({ overlays }: { overlays: Record<OverlayKey, boolean> }) {
   return (
     <div className="pointer-events-none absolute inset-0 z-[450]">
-      {overlays.hospitals ? (
-        <>
-          <MapMarker label="Hospital" layer="hospitals" className="left-[43%] top-[39%]" tone="bg-status-destroyed text-white" />
-          <MapMarker label="Clinic" layer="hospitals" className="left-[52%] top-[48%]" tone="bg-primary text-on-primary" />
-        </>
-      ) : null}
       {overlays.roads ? (
         <div data-layer="roads" className="absolute left-[30%] top-[57%] h-2 w-[38%] rotate-[-8deg] rounded-full bg-status-minor/80 shadow-[0_0_0_4px_rgba(234,179,8,0.2)]" />
       ) : null}
