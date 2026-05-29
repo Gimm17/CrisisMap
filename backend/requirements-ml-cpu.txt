@@ -1,0 +1,4 @@
+# Optional CPU-only PyTorch dependency for local SiamUnet inference.
+# Install after the core/geospatial requirements when ML_MODEL_ENABLED=true.
+--index-url https://download.pytorch.org/whl/cpu
+torch==2.5.1+cpu

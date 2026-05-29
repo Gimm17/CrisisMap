@@ -1,0 +1,158 @@
+﻿{
+    "downloaded_at":  "2026-05-19T02:48:09Z",
+    "repo_root":  "C:\\Users\\HP\\Laravel\\CrisisMap",
+    "aoi":  {
+                "name":  "Beirut Port AOI",
+                "bbox_lonlat":  [
+                                    35.48,
+                                    33.85,
+                                    35.55,
+                                    33.9
+                                ],
+                "crs":  "EPSG:4326"
+            },
+    "items":  [
+                  {
+                      "name":  "Maxar Beirut pre-event full orthomosaic 2020-07-31",
+                      "source":  "https://opendata.digitalglobe.com/events/beirut-explosion/pre-event/2020-07-31/10300500A5F95600/10300500A5F95600.tif",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\imagery\\maxar\\beirut_explosion\\pre_event_2020-07-31_10300500A5F95600.tif",
+                      "status":  "already_present",
+                      "size_bytes":  796902185,
+                      "notes":  "High-resolution pre-disaster image for building-level damage assessment."
+                  },
+                  {
+                      "name":  "Maxar Beirut post-event full orthomosaic 2020-08-05",
+                      "source":  "https://opendata.digitalglobe.com/events/beirut-explosion/post-event/2020-08-05/104001005EBCEB00/104001005EBCEB00.tif",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\imagery\\maxar\\beirut_explosion\\post_event_2020-08-05_104001005EBCEB00.tif",
+                      "status":  "already_present",
+                      "size_bytes":  358636329,
+                      "notes":  "High-resolution post-disaster image for building-level damage assessment."
+                  },
+                  {
+                      "name":  "Maxar Beirut pre-event preview ortho 2020-07-31",
+                      "source":  "https://opendata.digitalglobe.com/events/beirut-explosion/vector-data/2020-08-04/ortho/ortho_0731.tif",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\imagery\\maxar\\beirut_explosion\\preview_ortho_0731.tif",
+                      "status":  "already_present",
+                      "size_bytes":  11309227,
+                      "notes":  "Small preview ortho useful for quick QA."
+                  },
+                  {
+                      "name":  "Maxar Beirut post-event preview ortho 2020-08-05",
+                      "source":  "https://opendata.digitalglobe.com/events/beirut-explosion/vector-data/2020-08-04/ortho/ortho_0805.tif",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\imagery\\maxar\\beirut_explosion\\preview_ortho_0805.tif",
+                      "status":  "already_present",
+                      "size_bytes":  8450339,
+                      "notes":  "Small preview ortho useful for quick QA."
+                  },
+                  {
+                      "name":  "Maxar Beirut 2D building footprints",
+                      "source":  "https://opendata.digitalglobe.com/events/beirut-explosion/vector-data/2020-08-04/footprints/Beirut%20-%202D%20Footprints.zip",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\vector\\maxar\\beirut_explosion\\Beirut_2D_Footprints.zip",
+                      "status":  "already_present",
+                      "size_bytes":  20752997,
+                      "notes":  "Building footprint vector data from Maxar Open Data."
+                  },
+                  {
+                      "name":  "OpenAerialMap Beirut AOI metadata",
+                      "source":  "https://api.openaerialmap.org/meta?bbox=35.48,33.85,35.55,33.90\u0026limit=100",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\imagery\\openaerialmap\\beirut_aoi\\oam_metadata_beirut_2020.json",
+                      "status":  "already_present",
+                      "size_bytes":  19407,
+                      "notes":  "Catalog metadata for available UAV/satellite imagery over Beirut."
+                  },
+                  {
+                      "name":  "OpenAerialMap Beirut post-event UAV image 2020-08-05",
+                      "source":  "https://oin-hotosm-temp.s3.amazonaws.com/5f2bd274b0052e00067dbaed/0/5f2bd274b0052e00067dbaee.tif",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\imagery\\openaerialmap\\beirut_aoi\\post_event_uav_2020-08-05_beirut_port_012m.tif",
+                      "status":  "already_present",
+                      "size_bytes":  206533514,
+                      "notes":  "0.12m UAV post-event image around Beirut port; useful as detailed visual reference, not a full pre/post pair."
+                  },
+                  {
+                      "name":  "Copernicus EMSR452 Beirut grading vector package",
+                      "source":  "https://cems-mapping-website.s3.eu-west-1.amazonaws.com/static/activations/EMSR452/EMSR452_AOI01_GRA_PRODUCT_r1_RTP01_v2_vector.zip",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\ground_truth\\copernicus_ems\\EMSR452\\EMSR452_AOI01_GRA_PRODUCT_r1_RTP01_v2_vector.zip",
+                      "status":  "already_present",
+                      "size_bytes":  1471005,
+                      "notes":  "Public ground-truth/validation vector package for Beirut explosion damage grading."
+                  },
+                  {
+                      "name":  "OpenStreetMap Beirut AOI buildings, roads, critical infrastructure",
+                      "source":  "https://overpass.kumi.systems/api/interpreter",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\vector\\osm\\beirut_aoi\\overpass_beirut_infrastructure.json",
+                      "status":  "already_present",
+                      "size_bytes":  33242253,
+                      "notes":  "AOI bbox: south=33.85 west=35.48 north=33.90 east=35.55"
+                  },
+                  {
+                      "name":  "HDX Lebanon Healthsites package metadata",
+                      "source":  "https://data.humdata.org/api/3/action/package_search?q=Lebanon%20healthsites",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\humanitarian\\hdx\\lebanon_healthsites\\lebanon_healthsites_package.json",
+                      "status":  "already_present",
+                      "size_bytes":  21322,
+                      "notes":  "HDX package metadata used to track source and license."
+                  },
+                  {
+                      "name":  "HDX Lebanon Healthsites GeoJSON",
+                      "source":  "https://data.humdata.org/dataset/b04dc45f-5377-4b80-8432-2470325eeb47/resource/b32d0126-8e54-4421-a996-f6d4bf506fa2/download/lebanon.geojson",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\humanitarian\\hdx\\lebanon_healthsites\\lebanon_healthsites.geojson",
+                      "status":  "already_present",
+                      "size_bytes":  1267769,
+                      "notes":  "Health facility locations for humanitarian impact and cascade analysis."
+                  },
+                  {
+                      "name":  "WorldPop Lebanon 2020 100m population raster",
+                      "source":  "https://data.worldpop.org/GIS/Population/Global_2000_2020/2020/LBN/lbn_ppp_2020.tif",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\population\\worldpop\\LBN\\2020\\lbn_ppp_2020.tif",
+                      "status":  "already_present",
+                      "size_bytes":  7008718,
+                      "notes":  "Population exposure raster, people per 100m grid cell."
+                  },
+                  {
+                      "name":  "WorldPop Lebanon population API index",
+                      "source":  "https://www.worldpop.org/rest/data/pop/wpgp?iso3=LBN",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\population\\worldpop\\LBN\\2020\\worldpop_lbn_wpgp_index.json",
+                      "status":  "already_present",
+                      "size_bytes":  38503,
+                      "notes":  "WorldPop API metadata and citation information."
+                  },
+                  {
+                      "name":  "Microsoft Siamese CNN baseline pretrained weights",
+                      "source":  "https://raw.githubusercontent.com/microsoft/building-damage-assessment-cnn-siamese/main/models/model_best.pth.tar",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\models\\microsoft_building_damage_assessment_cnn_siamese\\model_best.pth.tar",
+                      "status":  "downloaded",
+                      "size_bytes":  29309059,
+                      "notes":  "Public PyTorch checkpoint for baseline xBD-style building damage assessment."
+                  },
+                  {
+                      "name":  "Microsoft Siamese CNN baseline model definition",
+                      "source":  "https://raw.githubusercontent.com/microsoft/building-damage-assessment-cnn-siamese/main/models/end_to_end_Siam_UNet.py",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\models\\microsoft_building_damage_assessment_cnn_siamese\\end_to_end_Siam_UNet.py",
+                      "status":  "downloaded",
+                      "size_bytes":  6485,
+                      "notes":  "Model architecture source needed to load the baseline checkpoint."
+                  },
+                  {
+                      "name":  "Microsoft Siamese CNN baseline README",
+                      "source":  "https://raw.githubusercontent.com/microsoft/building-damage-assessment-cnn-siamese/main/README.md",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\models\\microsoft_building_damage_assessment_cnn_siamese\\README.md",
+                      "status":  "downloaded",
+                      "size_bytes":  15403,
+                      "notes":  "Source documentation for the baseline model."
+                  },
+                  {
+                      "name":  "Microsoft Siamese CNN baseline license",
+                      "source":  "https://raw.githubusercontent.com/microsoft/building-damage-assessment-cnn-siamese/main/LICENSE",
+                      "destination":  "C:\\Users\\HP\\Laravel\\CrisisMap\\data\\raw\\models\\microsoft_building_damage_assessment_cnn_siamese\\LICENSE",
+                      "status":  "downloaded",
+                      "size_bytes":  1066,
+                      "notes":  "License for the downloaded baseline model repository."
+                  }
+              ],
+    "manual_required":  [
+                            "xBD/xView2 official dataset: requires account/Kaggle or explicit dataset access.",
+                            "ACLED API conflict-event data: requires registered ACLED access token.",
+                            "Copernicus Data Space Sentinel products: public but authenticated account is usually required for full product download.",
+                            "Any commercial imagery outside Maxar/OpenAerialMap open-data disaster releases."
+                        ]
+}

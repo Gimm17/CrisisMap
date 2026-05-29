@@ -1,0 +1,139 @@
+{
+  "location": {
+    "name": "Beirut Port, Lebanon",
+    "center": [33.901, 35.518],
+    "bbox": [35.500, 33.889, 35.535, 33.914]
+  },
+  "aoi": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [35.507, 33.895],
+        [35.531, 33.895],
+        [35.531, 33.909],
+        [35.507, 33.909],
+        [35.507, 33.895]
+      ]
+    ]
+  },
+  "humanitarian_layers": {
+    "hospitals": 4,
+    "water_nodes": 3,
+    "power_nodes": 5,
+    "population_density": "high"
+  },
+  "buildings": [
+    {
+      "building_id": "B-1001",
+      "name": "St. George Hospital",
+      "infrastructure_type": "Medical Facility",
+      "damage_score": 98,
+      "population_estimate": 45000,
+      "estimated_cost_usd": 12400000,
+      "confidence": 0.94,
+      "centroid": [33.9019, 35.5184],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[35.5174, 33.9012], [35.5192, 33.9012], [35.5192, 33.9026], [35.5174, 33.9026], [35.5174, 33.9012]]]
+      }
+    },
+    {
+      "building_id": "B-1002",
+      "name": "Port Silo Complex A",
+      "infrastructure_type": "Industrial Storage",
+      "damage_score": 89,
+      "population_estimate": 15000,
+      "estimated_cost_usd": 15200000,
+      "confidence": 0.91,
+      "centroid": [33.9029, 35.5142],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[35.5131, 33.9020], [35.5155, 33.9020], [35.5155, 33.9037], [35.5131, 33.9037], [35.5131, 33.9020]]]
+      }
+    },
+    {
+      "building_id": "B-1003",
+      "name": "Power Substation A",
+      "infrastructure_type": "Utility Infrastructure",
+      "damage_score": 85,
+      "population_estimate": 32000,
+      "estimated_cost_usd": 4800000,
+      "confidence": 0.89,
+      "centroid": [33.8992, 35.5226],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[35.5217, 33.8985], [35.5237, 33.8985], [35.5237, 33.9000], [35.5217, 33.9000], [35.5217, 33.8985]]]
+      }
+    },
+    {
+      "building_id": "B-1004",
+      "name": "Main Logistics Warehouse",
+      "infrastructure_type": "Logistics Hub",
+      "damage_score": 76,
+      "population_estimate": 11000,
+      "estimated_cost_usd": 8400000,
+      "confidence": 0.88,
+      "centroid": [33.9062, 35.5205],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[35.5192, 33.9054], [35.5219, 33.9054], [35.5219, 33.9071], [35.5192, 33.9071], [35.5192, 33.9054]]]
+      }
+    },
+    {
+      "building_id": "B-1005",
+      "name": "Residential Block C",
+      "infrastructure_type": "Residential",
+      "damage_score": 63,
+      "population_estimate": 8600,
+      "estimated_cost_usd": 3600000,
+      "confidence": 0.82,
+      "centroid": [33.8974, 35.5123],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[35.5112, 33.8965], [35.5133, 33.8965], [35.5133, 33.8982], [35.5112, 33.8982], [35.5112, 33.8965]]]
+      }
+    },
+    {
+      "building_id": "B-1006",
+      "name": "Municipal Water Pump Station",
+      "infrastructure_type": "Water System",
+      "damage_score": 57,
+      "population_estimate": 22000,
+      "estimated_cost_usd": 2100000,
+      "confidence": 0.86,
+      "centroid": [33.9042, 35.5262],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[35.5255, 33.9035], [35.5270, 33.9035], [35.5270, 33.9049], [35.5255, 33.9049], [35.5255, 33.9035]]]
+      }
+    },
+    {
+      "building_id": "B-1007",
+      "name": "Clinic North",
+      "infrastructure_type": "Medical Facility",
+      "damage_score": 38,
+      "population_estimate": 5400,
+      "estimated_cost_usd": 900000,
+      "confidence": 0.78,
+      "centroid": [33.9080, 35.5094],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[35.5087, 33.9073], [35.5101, 33.9073], [35.5101, 33.9087], [35.5087, 33.9087], [35.5087, 33.9073]]]
+      }
+    },
+    {
+      "building_id": "B-1008",
+      "name": "Port Administration Office",
+      "infrastructure_type": "Government",
+      "damage_score": 19,
+      "population_estimate": 900,
+      "estimated_cost_usd": 650000,
+      "confidence": 0.81,
+      "centroid": [33.9053, 35.5168],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[35.5161, 33.9046], [35.5175, 33.9046], [35.5175, 33.9060], [35.5161, 33.9060], [35.5161, 33.9046]]]
+      }
+    }
+  ]
+}

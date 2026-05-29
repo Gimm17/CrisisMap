@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CrisisMap - Assessment Workspace</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#004e5a",
+                    "tertiary-fixed-dim": "#98d1d1",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "tertiary": "#0a4c4c",
+                    "secondary-fixed": "#a3eeff",
+                    "surface-container-low": "#ecf5f7",
+                    "status-moderate": "#F59E0B",
+                    "secondary": "#006877",
+                    "outline": "#70787d",
+                    "status-severe": "#EA580C",
+                    "inverse-primary": "#8bd0ef",
+                    "on-surface": "#141d1f",
+                    "secondary-fixed-dim": "#76d4e7",
+                    "status-intact": "#22C55E",
+                    "on-tertiary-fixed": "#002020",
+                    "surface-container": "#e6eff1",
+                    "tertiary-fixed": "#b4eded",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#001f2a",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#001f25",
+                    "outline-variant": "#bfc8cd",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f2fbfd",
+                    "status-destroyed": "#DC2626",
+                    "inverse-on-surface": "#e9f2f4",
+                    "on-background": "#141d1f",
+                    "inverse-surface": "#293234",
+                    "surface-container-high": "#e1eaec",
+                    "tertiary-container": "#2b6464",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#a5dede",
+                    "secondary-container": "#8debff",
+                    "on-tertiary-fixed-variant": "#0f4f4f",
+                    "primary": "#004a5f",
+                    "background": "#f2fbfd",
+                    "on-primary-container": "#98ddfc",
+                    "surface-tint": "#116681",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#09637e",
+                    "surface-white": "#FFFFFF",
+                    "on-secondary": "#ffffff",
+                    "border-muted": "#D1D5DB",
+                    "on-surface-variant": "#40484c",
+                    "on-secondary-container": "#006b7a",
+                    "surface-variant": "#dbe4e6",
+                    "surface-container-highest": "#dbe4e6",
+                    "primary-fixed-dim": "#8bd0ef",
+                    "surface-dim": "#d3dcde",
+                    "surface": "#f2fbfd",
+                    "status-minor": "#EAB308",
+                    "on-primary-fixed-variant": "#004d63",
+                    "primary-fixed": "#bce9ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "panel-width": "360px",
+                    "container-padding": "1.5rem",
+                    "gutter": "1rem",
+                    "control-gap": "0.5rem"
+            },
+            "fontFamily": {
+                    "headline-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-sm": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-lg": [
+                            "Hanken Grotesk"
+                    ],
+                    "headline-sm": [
+                            "Hanken Grotesk"
+                    ],
+                    "body-md": [
+                            "Hanken Grotesk"
+                    ],
+                    "label-mono": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-md": [
+                            "Hanken Grotesk"
+                    ],
+                    "stat-value": [
+                            "Hanken Grotesk"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-sm": [
+                            "13px",
+                            {
+                                    "lineHeight": "18px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-mono": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "stat-value": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface h-screen overflow-hidden flex flex-col font-body-md text-body-md">
+<!-- Top Navigation Bar -->
+<header class="flex justify-between items-center h-16 px-gutter w-full bg-surface border-b border-outline-variant z-50 shrink-0">
+<div class="flex items-center gap-6">
+<span class="font-headline-md text-headline-md font-bold text-primary">CrisisMap</span>
+<nav class="hidden md:flex gap-6 h-full items-end">
+<a class="text-primary border-b-2 border-primary pb-2 font-headline-sm text-headline-sm" href="#">Workspace</a>
+<a class="text-on-surface-variant hover:text-primary pb-[10px] font-headline-sm text-headline-sm transition-colors" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary pb-[10px] font-headline-sm text-headline-sm transition-colors" href="#">History</a>
+<a class="text-on-surface-variant hover:text-primary pb-[10px] font-headline-sm text-headline-sm transition-colors" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<!-- Search Bar on Right -->
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 border border-outline-variant rounded bg-surface-container-lowest focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64 text-body-sm font-body-sm" placeholder="Search locations or jobs..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center ml-2 border border-outline-variant cursor-pointer">
+<img alt="User avatar" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpYjTB-C1BsN93dFOzJIoySkkWF6JODquHquiuvVxcl04WSelDdGM-ffnHl1oQL6hOjkC9UbbvLQUc-_XiNq58LYGcDIdNS2ML2152yz7kwFO9wmcgjLhcvC9WIEg04g-wCLvdR1YP63Hf_rrtQVRPYNxDyhRajFWL2nIFmEEe6Hcr0vVfBeCLip7cE45hSq7E7w2hjJnTVcK93_oxiAvoGKCCQBtaQuVbWDXk9Dv5otttNUwlXRoF63ioe6-tcqLi3Cm1N03xfqw2"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Workspace Area -->
+<div class="flex flex-1 overflow-hidden relative">
+<!-- Left SideNavBar (Collapsed visually to minimal state or integrated as part of control panel based on design system context. We will render a thin icon rail plus the main panel) -->
+<aside class="flex flex-col h-full bg-surface-container-lowest border-r border-outline-variant w-16 z-40 shrink-0 items-center py-4 gap-4">
+<button class="w-10 h-10 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center cursor-pointer active:scale-95 transition-all" title="Map Layers">
+<span class="material-symbols-outlined">layers</span>
+</button>
+<button class="w-10 h-10 rounded-xl text-on-surface-variant hover:bg-surface-container flex items-center justify-center cursor-pointer active:scale-95 transition-all" title="AI Tools">
+<span class="material-symbols-outlined">psychology</span>
+</button>
+<button class="w-10 h-10 rounded-xl text-on-surface-variant hover:bg-surface-container flex items-center justify-center cursor-pointer active:scale-95 transition-all" title="Analysis">
+<span class="material-symbols-outlined">analytics</span>
+</button>
+<button class="w-10 h-10 rounded-xl text-on-surface-variant hover:bg-surface-container flex items-center justify-center cursor-pointer active:scale-95 transition-all" title="Imagery">
+<span class="material-symbols-outlined">satellite_alt</span>
+</button>
+<button class="w-10 h-10 rounded-xl text-on-surface-variant hover:bg-surface-container flex items-center justify-center cursor-pointer active:scale-95 transition-all" title="Export">
+<span class="material-symbols-outlined">download</span>
+</button>
+<div class="mt-auto flex flex-col gap-4">
+<button class="w-10 h-10 rounded-xl text-on-surface-variant hover:bg-surface-container flex items-center justify-center cursor-pointer active:scale-95 transition-all" title="System">
+<span class="material-symbols-outlined">dns</span>
+</button>
+<button class="w-10 h-10 rounded-xl text-on-surface-variant hover:bg-surface-container flex items-center justify-center cursor-pointer active:scale-95 transition-all" title="Documentation">
+<span class="material-symbols-outlined">description</span>
+</button>
+</div>
+</aside>
+<!-- Assessment Control Panel (Dense fixed panel) -->
+<div class="w-panel-width h-full bg-surface-container-lowest border-r border-outline-variant z-30 shrink-0 flex flex-col overflow-y-auto">
+<!-- Panel Header -->
+<div class="p-4 border-b border-outline-variant bg-surface-bright sticky top-0 z-10">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-2 h-2 rounded-full bg-status-moderate"></div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface m-0">New Assessment</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant m-0">Configure parameters for analysis</p>
+</div>
+</div>
+<!-- Mode Selector Segmented Control -->
+<div class="flex bg-surface-variant p-1 rounded">
+<button class="flex-1 py-1 px-2 text-center rounded bg-surface-white shadow-sm font-label-mono text-label-mono text-on-surface">Demo (Beirut)</button>
+<button class="flex-1 py-1 px-2 text-center rounded text-on-surface-variant hover:text-on-surface font-label-mono text-label-mono">Live Data</button>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-6">
+<!-- AOI Configuration -->
+<section>
+<h3 class="font-label-mono text-label-mono uppercase text-on-surface-variant mb-3">Area of Interest</h3>
+<div class="space-y-3">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">location_on</span>
+<input class="w-full pl-9 pr-3 py-2 border border-outline-variant rounded bg-surface focus:outline-none focus:border-primary font-body-sm text-body-sm" placeholder="Search location..." type="text" value="Beirut Port, Lebanon"/>
+</div>
+<button class="w-full py-2 px-4 border border-outline-variant rounded bg-surface-white hover:bg-surface-container flex items-center justify-center gap-2 text-on-surface font-body-sm text-body-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]">draw</span>
+                            Draw Area manually
+                        </button>
+<div class="flex items-center justify-between bg-surface p-2 rounded border border-outline-variant">
+<span class="font-label-mono text-label-mono text-on-surface-variant">Coordinates</span>
+<span class="font-label-mono text-label-mono text-on-surface">33.901°N, 35.518°E</span>
+</div>
+</div>
+</section>
+<!-- Temporal Parameters -->
+<section>
+<h3 class="font-label-mono text-label-mono uppercase text-on-surface-variant mb-3">Temporal Parameters</h3>
+<div class="space-y-4">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Event Date (Anchor)</label>
+<input class="w-full p-2 border border-outline-variant rounded bg-surface focus:outline-none focus:border-primary font-body-sm text-body-sm" type="date" value="2020-08-04"/>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">Before Image Range</label>
+<input class="w-full p-2 border border-outline-variant rounded bg-surface focus:outline-none focus:border-primary font-body-sm text-body-sm mb-2" type="date" value="2020-07-01"/>
+<input class="w-full p-2 border border-outline-variant rounded bg-surface focus:outline-none focus:border-primary font-body-sm text-body-sm" type="date" value="2020-08-03"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1">After Image Range</label>
+<input class="w-full p-2 border border-outline-variant rounded bg-surface focus:outline-none focus:border-primary font-body-sm text-body-sm mb-2" type="date" value="2020-08-05"/>
+<input class="w-full p-2 border border-outline-variant rounded bg-surface focus:outline-none focus:border-primary font-body-sm text-body-sm" type="date" value="2020-08-15"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Data Sources Status -->
+<section>
+<h3 class="font-label-mono text-label-mono uppercase text-on-surface-variant mb-3">Data Sources</h3>
+<div class="space-y-2 bg-surface p-3 rounded border border-outline-variant">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">map</span> OSM Buildings
+                            </span>
+<span class="px-2 py-[2px] bg-status-intact/20 text-status-intact font-label-mono text-label-mono rounded">Ready</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">satellite</span> Before Imagery
+                            </span>
+<span class="px-2 py-[2px] bg-status-intact/20 text-status-intact font-label-mono text-label-mono rounded">Ready</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">satellite</span> After Imagery
+                            </span>
+<span class="px-2 py-[2px] bg-surface-variant text-on-surface-variant font-label-mono text-label-mono rounded">Pending</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">model_training</span> AI Model (Damage)
+                            </span>
+<span class="px-2 py-[2px] bg-status-intact/20 text-status-intact font-label-mono text-label-mono rounded">Ready</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Bottom Action Area -->
+<div class="mt-auto p-4 border-t border-outline-variant bg-surface-bright sticky bottom-0 z-10">
+<div class="flex items-center justify-between mb-3">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Job Status:</span>
+<span class="font-label-mono text-label-mono text-on-surface flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-outline"></span> Idle
+                    </span>
+</div>
+<button class="w-full bg-[#088395] hover:bg-primary text-white py-3 px-4 rounded font-headline-sm text-headline-sm flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined">play_arrow</span>
+                    Run Assessment
+                </button>
+</div>
+</div>
+<!-- Map Canvas Area -->
+<div class="flex-1 relative bg-[#e5e5e5] h-full" data-alt="A highly detailed satellite image of a coastal city, likely Beirut, viewed from directly above. The image shows a dense urban grid, port infrastructure, and blue coastal waters. The color palette is realistic, featuring muted urban grays and browns contrasted with the deep blue of the Mediterranean Sea. The image is crisp, conveying a high-stakes, operational mapping aesthetic suitable for crisis response software." data-location="Beirut" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBivWnq-811_tsMdJ9SGPefedNfMtCzOjRxES1ZTLZhtslbvOp8HTMi4CiudkJ2l8iNdQPIGiLfxNQWeCIgOuT5RhWf7mKlaSgejUzapEb8inFljSK1a-WOyFLiwAhwcNMgtaoumLHFIPSaGectIXTM1HR-bPe7uhFhv4OGLGnhuBUKtT9_8K5CQ_x8bUEKX1zbTuQqix0M_VPT9AQjh8Vk9tjmDmM2Y_1stH9DpTl4hPOXhO8mbKPKLUjSVxC9M9MML9s3lWV1GBfH'); background-size: cover; background-position: center;">
+<!-- Map Tools Floating Pannel (Top Right) -->
+<div class="absolute top-4 right-4 flex flex-col gap-2 z-20">
+<div class="bg-surface-white rounded shadow-sm border border-outline-variant flex flex-col overflow-hidden">
+<button class="p-2 text-[#088395] hover:bg-surface-container flex items-center justify-center" title="Search Location">
+<span class="material-symbols-outlined">search</span>
+</button>
+<div class="w-full h-px bg-outline-variant"></div>
+<button class="p-2 text-[#088395] hover:bg-surface-container flex items-center justify-center" title="Zoom In">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="p-2 text-[#088395] hover:bg-surface-container flex items-center justify-center" title="Zoom Out">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<div class="bg-surface-white rounded shadow-sm border border-outline-variant flex flex-col overflow-hidden mt-2">
+<button class="p-2 text-[#088395] hover:bg-surface-container flex items-center justify-center bg-surface-container-low" title="Pan Tool (Active)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pan_tool</span>
+</button>
+<div class="w-full h-px bg-outline-variant"></div>
+<button class="p-2 text-[#088395] hover:bg-surface-container flex items-center justify-center" title="Draw AOI Polygon">
+<span class="material-symbols-outlined">polyline</span>
+</button>
+</div>
+</div>
+<!-- Simulated Map Elements / Polygon Overlay for Context -->
+<div class="absolute inset-0 z-10 pointer-events-none flex items-center justify-center">
+<!-- AOI Bounding Box visual representation -->
+<div class="w-96 h-72 border-2 border-primary bg-primary/10 rounded flex items-center justify-center relative">
+<span class="absolute top-2 left-2 bg-surface text-on-surface font-label-mono text-label-mono px-1 rounded opacity-80">AOI: Beirut Port</span>
+<!-- Example Damage Polygons inside AOI -->
+<div class="absolute top-10 left-20 w-12 h-16 border border-status-destroyed bg-status-destroyed/40"></div>
+<div class="absolute bottom-12 right-24 w-20 h-10 border border-status-severe bg-status-severe/40"></div>
+<div class="absolute top-32 left-40 w-14 h-14 border border-status-moderate bg-status-moderate/40"></div>
+</div>
+</div>
+<!-- Scale and Legend (Bottom Right) -->
+<div class="absolute bottom-4 right-4 bg-surface-white p-2 rounded shadow-sm border border-outline-variant z-20">
+<div class="flex items-center gap-3 font-label-mono text-label-mono text-on-surface-variant">
+<div class="w-24 h-1 border-x border-b border-outline-variant relative">
+<span class="absolute -top-4 left-0">0</span>
+<span class="absolute -top-4 right-0">500m</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,9 @@
+# Optional heavy geospatial/ML dependencies for full GeoTIFF chip generation.
+# Keep these separate from the core API install because Windows wheels can be large.
+-r requirements.txt
+# Required only when ML_MODEL_ENABLED=true should use SiamUnet/model_best.pth.tar.
+# Install the CPU or CUDA wheel that matches the machine from https://pytorch.org/get-started/locally/.
+# Example CPU install:
+#   pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+# Or:
+#   pip install -r requirements-ml-cpu.txt
