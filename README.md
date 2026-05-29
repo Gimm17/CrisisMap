@@ -20,6 +20,24 @@
 - **Export Ready:** Generate and download actionable PDF, DOCX, and GeoJSON reconstruction reports.
 - **Complete Dashboard:** Includes Workspace, Dashboard, Priority Detail, Report, History, Settings, and Empty State foundations.
 
+## 📸 Visual Overview
+
+<div align="center">
+  <img src="design-system/results_dashboard/screen.png" alt="Results Dashboard" width="800"/>
+  <br/>
+  <i>Results Dashboard showing severe/critical building damage and infrastructure impact.</i>
+  <br/><br/>
+  
+  <img src="design-system/assessment_workspace/screen.png" alt="Assessment Workspace" width="800"/>
+  <br/>
+  <i>Interactive map workspace for defining AOIs and executing AI inference.</i>
+  <br/><br/>
+  
+  <img src="design-system/report_view/screen.png" alt="Exportable Reports" width="800"/>
+  <br/>
+  <i>Comprehensive report generation with TokenRouter reasoning, exportable to PDF/DOCX.</i>
+</div>
+
 ## 🛠️ Tech Stack
 
 - **Backend:** Python, FastAPI (`/api/v1`), SQLAlchemy
