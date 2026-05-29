@@ -16,7 +16,6 @@
 
 **CrisisMap** bridges the gap between raw satellite imagery and actionable humanitarian response. During a crisis, assessing infrastructure damage quickly and accurately is critical. This platform provides an end-to-end, map-first workspace that utilizes local AI inference (Siamese CNNs) and automated reasoning to identify destroyed buildings, assess critical infrastructure impact, and generate prioritized reconstruction reports.
 
-Designed with robust **Stitch UI/UX** principles, CrisisMap ensures operations remain functional even with fallback heuristics, making it highly resilient in critical scenarios.
 
 ## 🚀 Key Capabilities
 
