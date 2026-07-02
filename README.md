@@ -122,13 +122,6 @@ CrisisMap exposes a robust RESTful API for headless integration with external di
 | `GET` | `/api/v1/assessments/{id}/report` | Generate the AI-driven narrative reasoning report |
 | `PATCH`| `/api/v1/settings/analysis` | Configure global ML thresholds and system settings |
 
-## 🎯 Roadmap
-
-- [ ] **Database Migration:** Fully deprecate the local JSON file store in favor of PostgreSQL/PostGIS.
-- [ ] **Live Data Integration:** Implement live adapters for Sentinel Hub, OpenStreetMap, and HDX to replace demo fixtures.
-- [ ] **Dynamic Export Engine:** Replace placeholder PDF/DOCX templates with dynamically generated artifacts based on active data.
-- [ ] **Enterprise Authentication:** Implement RBAC (Role-Based Access Control) and team workspaces prior to production rollout.
-
 ---
 <div align="center">
   <i>Developed to empower those who respond first.</i>
