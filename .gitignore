@@ -46,3 +46,10 @@ ML_INFERENCE_REPORT.docx
 ~$_INFERENCE_REPORT.docx
 artifacts/
 scripts/
+
+kaggle-temporary-train/
+*.pth.tar
+*.pt
+*.pth
+*.ckpt
+ml-training/scratch/

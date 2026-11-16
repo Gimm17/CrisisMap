@@ -1,0 +1,186 @@
+# ==============================================================================
+# CrisisMap ML Fine-Tuning — Master Configuration
+# ==============================================================================
+# Semua hyperparameter terpusat di sini. Notebook membaca file ini.
+# Jangan hardcode angka di notebook — ubah di sini saja.
+#
+# VERIFIED against:
+#   - end_to_end_Siam_UNet.py: in_channels=3, out_channels_s=2, out_channels_c=5
+#   - ml_inference.py: band order RGB [1,2,3], normalize /max(p99,255) -> [0,1]
+#   - model_best.pth.tar: key='state_dict', 176 keys, no prefix, epoch=279
+# ==============================================================================
+
+# --- Random Seed (reproducibility) ---
+seed: 42
+
+# --- Model Architecture (DO NOT CHANGE unless you modify the model) ---
+model:
+  in_channels: 3
+  out_channels_s: 2        # building segmentation: background + building
+  out_channels_c: 5        # damage classification: bg, no-dmg, minor, major, destroyed
+  init_features: 16        # base channel width
+
+# --- Data Paths (Kaggle mount paths — override for local) ---
+data:
+  # Kaggle Dataset mount paths (after uploading xBD as private Kaggle Dataset)
+  train_root: "/kaggle/input/xbd-xview2-challenge/train/train"
+  tier3_root: "/kaggle/input/xbd-xview2-challenge/tier3/tier3"
+  # Local paths (Windows — for debugging only)
+  train_root_local: "E:/CrisisMapData/xbd/extracted/train/train"
+  tier3_root_local: "E:/CrisisMapData/xbd/extracted/tier3/tier3"
+  # Subfolder names
+  images_dir: "images"
+  labels_dir: "labels"
+  targets_dir: "targets"    # only available in train, NOT tier3
+
+# --- Preprocessing (MUST match backend ml_inference.py) ---
+preprocessing:
+  tile_size: 1024           # xBD original tile size
+  patch_size: 256           # crop/resize target for model input
+  patches_per_tile: 16      # 4x4 non-overlapping grid
+  overlap_patches: 4        # additional overlapping patches per tile
+  band_order: [1, 2, 3]     # RGB — matches backend src.read(indexes=[1,2,3])
+  normalize_value: 255.0    # xBD PNG is 8-bit → divide by 255.0
+  # NOTE: backend uses max(p99, 255.0) which ≈ 255.0 for 8-bit PNG
+  # Domain shift from this difference is handled by Stage B
+
+# --- Data Split ---
+split:
+  train_ratio: 0.80
+  val_ratio: 0.10
+  test_ratio: 0.10
+  # Split by TILE (not patch) to prevent data leakage
+  stratify_by: "disaster_type"
+
+# --- Damage Class Mapping ---
+classes:
+  segmentation: ["background", "building"]
+  damage:
+    - "background"           # 0
+    - "no-damage"            # 1
+    - "minor-damage"         # 2
+    - "major-damage"         # 3
+    - "destroyed"            # 4
+  # xBD label subtype → class index
+  label_to_idx:
+    "un-classified": 0
+    "no-damage": 1
+    "minor-damage": 2
+    "major-damage": 3
+    "destroyed": 4
+
+# ==============================================================================
+# Stage A: Fine-Tune on xBD/xView2
+# ==============================================================================
+stage_a:
+  # --- Phase 1: Building Segmentation ---
+  phase1:
+    description: "Train segmentation arm, freeze damage classifier"
+    epochs: 15
+    optimizer: "Adam"
+    learning_rate: 1.0e-4
+    weight_decay: 1.0e-5
+    batch_size: 16
+    num_workers: 2            # Kaggle has 4 CPUs, keep 2 for data loading
+    weights_loss: [0.5, 0.5, 0.0]   # [seg_pre, seg_post, damage]
+    class_weights_seg: [0.3, 0.7]    # [background, building] — upweight buildings
+    # Layers to FREEZE in Phase 1 (damage classifier arm)
+    freeze_prefixes:
+      - "upconv4_c"
+      - "conv4_c"
+      - "upconv3_c"
+      - "conv3_c"
+      - "upconv2_c"
+      - "conv2_c"
+      - "upconv1_c"
+      - "conv1_c"
+      - "conv_c"
+    metric_save: "val_iou"    # save best checkpoint by validation IoU
+
+  # --- Phase 2: Damage Classification ---
+  phase2:
+    description: "Train damage classifier, freeze segmentation + encoder"
+    epochs: 20
+    optimizer: "Adam"
+    learning_rate: 5.0e-5
+    weight_decay: 1.0e-5
+    batch_size: 16
+    num_workers: 2
+    weights_loss: [0.0, 0.0, 1.0]   # [seg_pre, seg_post, damage]
+    # Inverse frequency class weights for damage (adjust after computing actual distribution)
+    class_weights_dmg: [0.05, 0.10, 0.60, 0.80, 1.00]
+    # Layers to FREEZE in Phase 2 (everything EXCEPT damage classifier)
+    # Effectively: freeze everything that does NOT match damage prefixes
+    freeze_prefixes:
+      - "encoder1"
+      - "encoder2"
+      - "encoder3"
+      - "encoder4"
+      - "bottleneck"
+      - "pool"
+      - "upconv4."       # note the dot — NOT upconv4_c
+      - "decoder4"
+      - "upconv3."
+      - "decoder3"
+      - "upconv2."
+      - "decoder2"
+      - "upconv1."
+      - "decoder1"
+      - "conv_s"
+    metric_save: "val_macro_f1"  # save best checkpoint by macro F1
+
+# ==============================================================================
+# Stage B: Domain Calibration for Beirut
+# ==============================================================================
+stage_b:
+  description: "Fine-tune damage classifier on Beirut Maxar chips"
+  epochs: 10
+  optimizer: "Adam"
+  learning_rate: 1.0e-5
+  weight_decay: 1.0e-5
+  batch_size: 8
+  num_workers: 2
+  class_weights_dmg: [0.05, 0.20, 0.60, 0.80, 1.00]
+  # EMSR452 damage grade → xBD class mapping
+  emsr452_mapping:
+    "Destroyed": "destroyed"
+    "Damaged": "major-damage"
+    "Possibly Damaged": null     # EXCLUDE from training — mark uncertain
+  # Only unfreeze damage classifier layers (same as Stage A Phase 2)
+  freeze_prefixes_same_as: "stage_a.phase2.freeze_prefixes"
+
+# ==============================================================================
+# Checkpoint Save Format (MUST match backend ml_inference.py)
+# ==============================================================================
+checkpoint:
+  format: ".pth.tar"
+  keys:
+    - "epoch"
+    - "state_dict"           # RAW model.state_dict(), NO 'module.' prefix
+    - "optimizer"
+    - "val_f1_avg"
+    - "best_f1"
+  # Backend extracts: checkpoint.get('state_dict')
+  # No 'module.' or 'model.' prefix stripping needed
+  map_location: "cpu"         # backend loads with map_location="cpu"
+  save_interval_steps: 500    # checkpoint resume every N steps (Kaggle session safety)
+
+# ==============================================================================
+# Compute & Kaggle Session Management
+# ==============================================================================
+compute:
+  # Kaggle free tier: 12h GPU session, P100 16GB
+  max_session_hours: 12
+  checkpoint_resume: true     # resume from last checkpoint on session restart
+  subsample_tier3: 0.5        # use 50% of tier3 for initial run (speed)
+  # Set to 1.0 for full run after validating pipeline
+  gradient_accumulation_steps: 1  # increase if batch doesn't fit in 16GB
+  mixed_precision: false      # set to true if using T4 (fp16 friendly)
+
+# ==============================================================================
+# Logging & Visualization
+# ==============================================================================
+logging:
+  log_interval_steps: 50      # print loss every N steps
+  val_interval_epochs: 1      # validate every N epochs
+  save_sample_predictions: 10 # number of sample visualizations to save

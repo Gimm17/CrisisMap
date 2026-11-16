@@ -1,0 +1,16 @@
+# CrisisMap ML Fine-Tuning — Requirements
+# Pin versions for reproducibility. Compatible with Kaggle Python 3.10+ environment.
+# Backend target: PyTorch 2.5.1, CPU, map_location="cpu"
+
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.23.0
+Pillow>=9.0.0
+scikit-learn>=1.2.0
+matplotlib>=3.6.0
+seaborn>=0.12.0
+tqdm>=4.64.0
+PyYAML>=6.0
+shapely>=2.0.0
+# Optional: for reading xBD JSON polygons
+# rasterio  # only needed for GeoTIFF (Stage B), not for PNG xBD
