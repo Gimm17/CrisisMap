@@ -53,3 +53,11 @@ kaggle-temporary-train/
 *.pth
 *.ckpt
 ml-training/scratch/
+
+# Security: ignore environment, cPanel, and secret files
+!.env.*.example
+cpanel.txt
+*cpanel*.txt
+*CPANEL*.txt
+*secret*.txt
+pwsupersecretcpanel.txt
